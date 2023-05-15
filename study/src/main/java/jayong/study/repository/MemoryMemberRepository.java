@@ -1,9 +1,11 @@
 package jayong.study.repository;
 
 import jayong.study.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.awt.image.AreaAveragingScaleFilter;
 import java.util.*;
+
 
 public class MemoryMemberRepository implements MemberRepository{
 
