@@ -14,17 +14,18 @@ import java.util.List;
 @Controller
 public class MemberController {
 
-    private final MemberService memberService;
+    private MemberService memberService;
 
     @Autowired
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
     }
 
-    @PostMapping("members/new")
+
+    @PostMapping("/members/new")
     public String create(MemberForm form){
         Member member = new Member();
-        member.setName(member.getName());
+        member.setName(form.getName());
 
         memberService.join(member);
 
@@ -35,8 +36,7 @@ public class MemberController {
     public String list(Model model) {
         List<Member> members = memberService.findMembers();
         model.addAttribute("members", members);
-        return "members/membersList";
-
+        return "members/memberList";
 
     }
 
